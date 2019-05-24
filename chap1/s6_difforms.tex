@@ -1,0 +1,166 @@
+\section{Differential Forms}
+
+% Prob 1
+\begin{problem}{1}
+  Let \(\phi=y\dd{x}+\dd{z},\psi=\sin{z}\dd{x} + \cos{z}\dd{y}, \xi=\dd{y} + z\dd{z}\). Find the standard expressions (in terms of \(\dd{x}\dd{y},...\)) for \\
+  (a) \(\phi\wedge\psi \), \(\psi\wedge\xi \), \(\xi\wedge\phi \).\quad\quad (b) \(d{\phi} \), \(d{\psi} \), \(d{\xi} \).
+\end{problem}
+\begin{sol}
+  (a) Applying the definition
+  \begin{align}
+    \phi\wedge\psi=&\sin{z}\dd{z}\dd{x}+y\cos{z}\dd{x}\dd{y}+\cos{z}\dd{z}\dd{y}\\
+    \psi\wedge\xi=&\sin{z}\dd{x}\dd{y}+z\sin{z}\dd{x}\dd{z}+z\cos{z}\dd{y}\dd{z}\\
+    \xi\wedge\phi=&\y\dd{y}\dd{x}+yz\dd{z}\dd{x}+\dd{y}\dd{z}
+  \end{align}\\
+  (b) Using definition 6.3,
+  \begin{align}
+    d{\phi}=&\dd{y}\dd{x}\\
+    d{\psi}=&\cos{z}\dd{z}\dd{x}-\sin{z}\dd{z}\dd{y}\\
+    d{\xi}=& 0
+  \end{align}
+\end{sol}
+
+% Prob 2
+\begin{problem}{2}
+  Let \(\psi=\dd{x}/y \) and \(\psi=z\dd{y}\). Check the Leibnizian formula (3) of Theorem 6.4 in this case by computing each term separately.
+\end{problem}
+\begin{sol}
+  We have \(d{(\phi\wedge\psi )}=d{\phi}\wedge\psi-\phi\wedged{\psi}\). The first term is
+  \begin{align}
+    d{(\phi\wedge\psi)}=&d{(z/y\dd{x}\dd{y})}\\
+    =&1/y\dd{x}\dd{y}\dd{z}.
+  \end{align}
+  The second term is
+  \begin{align}
+    d{\phi}\wedge\psi=&0
+  \end{align}
+  The third term is
+  \begin{align}
+    \phi\wedged{\psi }=&1/y\dd{x}\dd{z}\dd{y}\\
+    =&-1/y\dd{x}\dd{y}\dd{z}.
+  \end{align}
+\end{sol}
+
+% Prob 3
+\begin{problem}{3}
+  For any function \(f\) show that \(d{(\dd{f})}=0\). Deduce that \(d{(f\dd{g})}=\dd{f}\wedge\dd{g}\).
+\end{problem}
+\begin{sol}
+  Using \(\dd{f}=\pdv{f}{x_i}d{x_i}\),
+  \begin{align}
+    d{(\dd{f})}=&d{(\pdv{f}{x_i}d{x_i})}\\
+    =&d{(\pdv{f}{x_i})}\wedged{x_i}\\
+    =&\pdv{f}{x_i}{x_j}d{x_j}\wedged{x_i}\\
+    =& 0
+  \end{align}
+  by antisymmetry (alternation). Point is the partial derivative is symmetric in \(i \) and \(j\) but the wedge product is antisymmetric in those indices so the whole term is zero. Combining this result with \(\dd{(f\phi )}=\dd{f}\wedge\phi+fd{\phi}\), we see that the second term is zero so that \(\dd{(f\dd{g})}=\dd{f}\wedge\dd{g}\).
+\end{sol}
+
+% Prob 4
+\begin{problem}{4}
+  Simplify the following forms \\
+  (a) \(\dd{(f\dd{g}+g\dd{f})}\)\quad\quad (b) \(\dd{((f-g)(\dd{f}+\dd{g}))}\\\)
+  (c) \(\dd{(f\dd{g}\wedge g\dd{f})}\)\quad\quad \,(d) \(\dd{(gf\dd{f})}+\dd{(f\dd{g})}\)
+\end{problem}
+\begin{sol}
+  (a) \begin{align}
+        \dd{(f\dd{g}+g\dd{f})}&=\dd{f}\wedge\dd{g}+\dd{g}\wedge\dd{f}\\
+        &=0
+      \end{align}
+      by the alternation rule.\\
+
+  (b) \begin{align}
+    \dd{((f-g)(\dd{f}+\dd{g}))}&=\dd{(f-g)}\wedge(\dd{f}+\dd{g})\\
+    &=\dd{f}\wedge\dd{g}-\dd{g}\wedge\dd{f}\\
+    &=2\dd{f}\wedge\dd{g}
+  \end{align}\\
+
+  (c) \begin{align}
+    \dd{(f\dd{g}\wedge g\dd{f})}&=\dd{(f\dd{g})}\wedge(g\dd{f})-(f\dd{g}\wedged{(g\dd{f})}\\
+    &=\dd{f}\wedge\dd{g}\wedge(g\dd{f})-(f\dd{g})\wedge\dd{g}\wedge\dd{f}\\
+    &=d{(fg)}\wedge\dd{f}\dd{g}
+  \end{align}\\
+
+  (d) \begin{align}
+    \dd{(gf\dd{f})}+\dd{(f\dd{g})}&=\dd{(gf)}\wedge\dd{f}+\dd{f}\wedge\dd{g}\\
+    &=(g\dd{f}+f\dd{g})\wedge\dd{f}+\dd{f}\wedge\dd{g}\\
+    &=(f-1)\dd{g}\wedge\dd{f}
+  \end{align}
+\end{sol}
+
+% Prob 5
+\begin{problem}{5}
+  For any three 1-forms \(\phi_i=\sum_jf_{ij}\dd{x_j}(1\leq i\leq 3)\), prove\\
+  \begin{equation}
+    \phi_1\wedge\phi_2\wedge\phi_3=\begin{pmatrix}
+      f_{11}&f_{22}&f_{33}\\f_{21}&f_{22}&f_{23}\\f_{31}&f_{32}&f_{33}
+  \end{pmatrix}\dd{x_1}\dd{x_2}\dd{x_3}.
+  \end{equation}
+\end{problem}
+\begin{sol}
+  \begin{align}
+  \phi_1\wedge\phi_2\wedge\phi_3&=\sum_{i,j,k}f_{1i}f_{2j}f_{3k}\epsilon^{ijk}\dd{x_1}\dd{x_2}\dd{x_3}\\
+  \end{align}
+  because repeats are zero so we need the antisymmetric product of all of the \(f_ij\) giving the determinant.
+\end{sol}
+
+% Prob 6
+\begin{problem}{6}
+  If \(r,\theta,z\) are the cylindrical coordinate functions on \(\mathbf{R}^2\), then \(x=r\cos\theta\), \(y=r\sin\theta\), \(z=z \). Compute the \emph{volume element dx dy dz} of \(\mathbf{R}^3\) in cylindrical coordinates. (That is, express \emph{dx dy dz} in terms of the functions \(r,\theta,z\), and their differentials.)
+\end{problem}
+\begin{sol}
+  \begin{align}
+    \dd{x}\dd{y}\dd{z}&=(\cos\theta\dd{r}-r\sin\thetad{\theta})(\sin\theta\dd{r}+r\cos\thetad{\theta})\dd{z}\\
+    &=r(-\sin^2\thetad{\theta}\dd{r}+\cos^2\theta\dd{r}\dd{\theta})\dd{z}\\
+    &=r\dd{r}\dd{\theta}\dd{z}\\
+  \end{align}
+  by the alternation rule.
+\end{sol}
+
+% Prob 7
+\begin{problem}{7}
+  For a 2-form \(\eta= f \dd{x}\dd{y}+g\dd{x}\dd{z}+h\dd{y}dz\), the \emph{exterior derivative d\(\eta\)} is defined to be the 3-form obtained by replacing \(f\), \(g\), and \(h\) by their differentials. Prove that for any 1-form \(\phi\), \(\dd{}(\dd{f})} = 0\).
+  Exercises 3 and 7 show that \(\dd^2 = 0\), that is, for any form \(\xi\), \(\dd(\dd{\xi}) = 0\). (If \(\xi\) is a 2-form, then \(d(\dd{\xi}) = 0\), since its degree exceeds 3.)
+\end{problem}
+\begin{sol}
+    We have \(df=\sum_i\pdv{f}{x_i}\dd{x_i}\). Then
+    \begin{align}
+      \dd(\dd{f})&=\sum_i\dd{f_i}\wedge \dd{x_i}\\
+      &=\sum_{i,j}\pdv{f}{x_i}{x_j}\dd{x_i}\dd{x_j}
+    \end{align}
+    but the partial derivative is symmetric in \(i,j\) and the differentials are antisymmetric so this product is zero.
+\end{sol}
+
+% Prob 8
+\begin{problem}{8}
+  Prove that all three operations may be expressed by exterior derivatives as follows: \\
+  (a) \(df \leftrightarrow \grad f\).\\
+  (b) If \(\phi\leftrightarrow V\), then \(\dd{\phi}\leftrightarrow\curl V\).\\
+  (c) If \(\eta\leftrightarrow V\), then \(\dd{\eta}=(\div V)\dd{x}\dd{y}\dd{z}\).
+\end{problem}
+\begin{sol}
+  (a) This one works out by definition. Since \(\dd{x_i}\) is dual to \(U_i\).\\
+  (b) \begin{align}
+    \dd{\phi}&=\sum_i \dd{f_i}\wedge \dd{x_i}\\
+  \end{align}
+  (c) Using \(\eta=f\dd{x}\dd{y}+g\dd{x}\dd{z}+h\dd{y}\dd{z}\),
+  \begin{align}
+    \dd{\eta}&=\pdv{f}{z}\dd{z}\dd{x}\dd{y}+\pdv{g}{y}\dd{y}\dd{x}\dd{z}+\pdv{h}{x}\dd{x}\dd{y}\dd{z}\\
+  \end{align}
+  and the equality holds using (2).
+\end{sol}
+
+% Prob 9
+\begin{problem}{9}
+  Let f and g be real-valued functions on \textbf{R}^2. Prove that
+  \begin{equation}
+    \dd{f}\wedge \dd{g}= \begin{pmatrix}\pdv{f}{x}&\pdv{f}{y}\\\pdv{g}{x}&\pdv{g}{y}\end{pmatrix}\dd{x}\dd{y}.
+  \end{equation}
+\end{problem}
+\begin{sol}
+  \begin{align}
+    \dd{f}\wedge \dd{g}&=(\pdv{f}{x}\dd{x}+\pdv{f}{y}\dd{y})(\pdv{g}{x}\dd{x}+\pdv{g}{y}\dd{y})\\
+    &=\pdv{f}{x}\dd{x}\pdv{g}{y}\dd{y}+\pdv{f}{y}\dd{y}\pdv{g}{x}\dd{x}\\
+    &=\begin{pmatrix}\pdv{f}{x}&\pdv{f}{y}\\\pdv{g}{x}&\pdv{g}{y}\end{pmatrix}\dd{x}\dd{y}
+  \end{align}
+\end{sol}

@@ -1,0 +1,110 @@
+\section{Mappings}
+% Prob 1
+\begin{problem}{1}
+  With \(F(u,v)=(u^2-v^2,2uv)\), find all points \textbf{p} such that\\
+  (a) \(F(\mathbf{p})=(0,0)\)\quad(b) \(F(\mathbf{p})=(8,6)\)\\
+  (c) \(F(\mathbf{p})=\mathbf{p}\).
+\end{problem}
+\begin{sol}
+  (a) \(u,v)=(0,0)\)\\
+  (b) \(u,v)=(\pm 3,\pm 1)\)\\
+  (c) \((u,v)=(1,0)\)
+\end{sol}
+
+% Prob 2
+\begin{problem}{2}
+  (a)
+\end{problem}
+
+% Prob 3
+\begin{problem}{3}
+  With \(F(u,v)=(u^2-v^2,2uv)\), let \(\mathbf{v} = (v_1, v_2)\) be a tangent vector to \textbf{R}^2 at \(\mathbf{p} = (p_1, p_2)\). Apply Definition 7.4 directly to express \(F*(\mathbf{v})\) in terms of the coordinates of \textbf{v} and \textbf{p}.
+\end{problem}
+\begin{sol}
+  \begin{align}
+    F*(\mathbf{v})&=(\mathbf{v}[u^2-v^2],\mathbf{v}[2uv])\\
+    &=(2p_1v_1-2p_2v_2,2p_1v_2+2p_2v_1)
+  \end{align}
+\end{sol}
+
+% Prob 4
+\begin{problem}{4}
+  With \(F(u,v)=(u^2-v^2,2uv)\), find a formula for the Jacobian matrix of \(F\) at all points, and deduce that \(F*_p\) is a linear isomorphism at every point of \textbf{R}^2 except the origin.
+\end{problem}
+\begin{sol}
+  \begin{equation}
+    \begin{vmatrix}
+      2u&-2v\\
+      2v&2u
+    \end{vmatrix}
+  \end{equation}
+  this matrix has rank 2 so given the conditions below Def. 7.9, the map \(F*\) is one-to-one. So it is a linear isopmorphism.
+\end{sol}
+
+% Prob 5
+\begin{problem}{5}
+  If \(F: \mathbf{R}^n \rightarrow \mathbf{R}^m\) is a linear transformation, prove that \(F*(\mathbf{v}_p) = F(\mathbf{v})_{F(p)}\).
+\end{problem}
+\begin{sol}
+  I don't understand this notation...
+\end{sol}
+
+% Prob 6
+\begin{problem}{6}
+  (a) Give an example to demonstrate that a one-to-one and onto mapping need not be a diffeomorphism. (\epmh{Hint:} Take m = n = 1.)\\
+  (b) Prove that if a one-to-one and onto mapping \(F\): \(\mathbf{R}^n \rightarrow \mathbf{R}^n\) is regular, then it is a diffeomorphism.
+\end{problem}
+\begin{sol}
+  (a) Any mapping defined by \(f(x)=x^\alpha\) for \(\alpha\) is odd doesn't have smooth inverse at the origin but is still one-to-one and onto.\\
+  (b) If a mapping is one-to-one at every point and onto, then there is a well-defined inverse mapping making it a diffeomorphism.
+\end{sol}
+
+% Prob 7
+\begin{problem}{7}
+  Prove that a mapping \(F:\, \mathbf{R}^n \rightarrow \mathbf{R}^m\) preserves directional derivatives in this sense: If \(\mathbf{v}_p\) is a tangent vector to \(\mathbf{R}^n\) and \(g\) is a differentiable function on \(\mathbf{R}^m\), then \(F*(\mathbf{v}_p)[g] = \mathbf{v}_p[g(F)]\).
+\end{problem}
+\begin{sol}
+  \begin{align}
+    \vb{v}_p[g(F)]&=\dd{(g(F))}[\vb{p}]\\
+    &=\dd{g}(\dd{F}[\vb{p}])\\
+    &\equiv F*(\vb{v}_p)[g]
+  \end{align}
+\end{sol}
+
+% Prob 8
+\begin{problem}{8}
+  In the definition of tangent map (Def. 7.4), the straight line \(t \rightarrow \vb{p} + t\vb{v}\) can be replaced by any curve a with initial velocity \(\vb{v}_p\).
+\end{problem}
+\begin{sol}
+  The function \(F*\) gives the initial velocity of a curve \(\alpha '(0)\). Any curve \(\beta(t)\) with \(\beta ' (0)\) will have the same tangent vector and so won't affect the value of \(F*\).
+\end{sol}
+
+% Prob 9
+\begin{problem}{9}
+  Let \(F:\, \vb{R}^n \rightarrow \vb{R}^m\) and \(G:\, \vb{R}^m \rightarrow \vb{R}^p\) be mappings. Prove:\\
+  (a) Their composition \(GF:\, \vb{R}^n \rightarrow \vb{R}^p\) is a (differentiable) mapping. (Take m = p = 2 for simplicity.)\\
+  (b) \((GF )* = G*F*\). (Hint: Use the preceding exercise.)
+  This concise formula is the general chain rule. Unless dimensions are small, it becomes formidable when expressed in terms of Jacobian matrices.\\
+  (c) If \(F\) is a diffeomorphism, then so is its inverse mapping \(F^{-1}\).
+\end{problem}
+\begin{sol}
+  (a) A mapping is a function with differentiable coordinate functions. Since differentiation is well-defined for composite functions using chain rule, the composite function \(GF \) is a mapping.\\
+  (b) By definition,\(F*(v)&=\beta '(0)\). So,
+  \begin{align}
+    (GF)*(\beta '(0))&=(GF(\beta))'(0)\\
+    &=G*(F(\beta)'(0))\\
+    &=G*F*(\beta '(0))
+  \end{align}\\
+  (c) If \(F\) is a diffeomorphism, then it has an inverse \(F^{-1}\). The function \(F^{-1}\) has an inverse. Its tangent map also has an inverse by the previous exercise that maps only the zero vector to 0 (i.e. \(F^{-1}F=I\rightarrow (F^{-1}F)*=I*\rightarrow F^{-1}*F*=I\)).
+\end{sol}
+
+% Prob 10
+\begin{problem}{10}
+  Show (in two ways) that the map \(F: \,\vb{R}^2 \rightarrow \vb{R}^2\) such that \(F(u, v) = (v\operatorname{e}^{u}, 2u)\) is a diffeomorphism:\\
+  (a) Prove that it is one-to-one, onto, and regular;
+  (b) Find a formula for its inverse \(F^{-1}:\, \vb{R}^2 \rightarrow \vb{R}^2\) and observe that \(F^{-1}\) is differentiable. Verify the formula by checking that both \(F F^{-1}\) and \(F^{-1} F\) are identity maps.
+\end{problem}
+\begin{sol}
+  (a) The map is one-to-one and onto since the coordinate functions are one-to-one and onto. The Jacobian matrix is rank two so the tangent map is one-to-one so the map is regular.\\
+  (b) Let \(F^{-1}=(u\operatorname{e}^{-u}/v,v/(2u))\). Then \(FF^{-1}=F^{-1}F=I\).
+\end{sol}

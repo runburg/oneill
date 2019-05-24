@@ -1,0 +1,25 @@
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mathtools, esint}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsthm, amssymb}
+
+\renewcommand{\thesection}{\S\thechapter.\arabic{section}}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+
+\makeatletter
+\def\app@exe{\immediate\write18}
+\def\inputAllFiles#1{%
+  \app@exe{cat #1/*.tex >> \jobname.tmp}%
+  \InputIfFileExists{\jobname.tmp}{}{}%
+  \AtEndDocument{\app@exe{rm -f \jobname.tmp}}}%
+\makeatother

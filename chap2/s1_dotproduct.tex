@@ -1,0 +1,131 @@
+\section{Dot Product}
+
+% Prob 1
+\begin{problem}{1}
+  Let \(\vb{v}=(1,2,-1)\) and \(\vb{w}=(-1,0,3)\) be tangent vectors at a point of \(\vb{R}^3\).\\
+  (a) \(\vb{v}\cdot\vb{w}\)\quad\quad(b) \(\vb{v}\times\vb{w}\)\\
+  (c) \(\vb{v}/||\vb{v}||,\,\vb{w}/||\vb{w}||\)\quad\quad(d)\(||\vb{v}\times\vb{w}\)\\
+  (e) the cosine of the angle between \textbf{v} and \textbf{w}.
+\end{problem}
+\begin{sol}
+  (a) \(-1+0-3=-4\).\\
+  (b) \(6\vb{e_1}-2\vb{e_2}+2\vb{e_3}\).\\
+  (c) \(\vb{v}/||\vb{v}||=\vb{v}/\sqrt{6},\,\,\vb{w}/||\vb{w}||=\vb{w}/\sqrt{10}\)\\
+  (d) \(2\sqrt{10}\).\\
+  (e)\(-4/\sqrt{60}\).\\
+\end{sol}
+
+% Prob 2
+\begin{problem}{2}
+  Prove that Euclidean distance has the properties\\
+  (a) \(d(\vb{p}, \vb{q})\geq 􏰆0; d(\vb{p}, \vb{q}) = 0\) if and only if \(\vb{p} = \vb{q}\),\\
+  (b) \(d(\vb{p}, \vb{q})=d(\vb{q}, \vb{p})\),\\
+  (c) \(d(\vb{p}, \vb{q})+d(\vb{q}, \vb{r})\geq d(\vb{p}, \vb{r})\), for any points \(\vb{p}, \vb{q}, \vb{r}\) in\(\vb{R}^3\).
+\end{problem}
+\begin{sol}
+  (a) The norm is the square root of the sum of squares.
+  Squares in \(\vb{R}^3\) are positive and taking the positive branch of the square root function, the result is proven.
+  If \(d(\vb{p}, \vb{q})=0\), then \((p_1-q_1)^2+(p_2-q_2)^2+(p_3-q_3)^2=0\) but since all squares are positive, each term much be zero, thus \(\vb{p}=\vb{q}\).
+  If \(\vb{p}=\vb{q}\), from the definition of the norm \(d(\vb{p}, \vb{q})=0\).\\
+  (b) The norm is symmetric under interchange of its arguments since the square of a difference is symmetric under interchange of its arguments.\\
+  (c) We have
+  \begin{align}
+    d(\vb{p}, \vb{q})+d(\vb{q}, \vb{r})&= ||\vb{p}-\vb{q}||+||\vb{q}-\vb{r}||\\
+    &\geq ||(\vb{p}-\vb{q})+(\vb{q}-\vb{r})||\\
+    &\geq ||\vb{p}-\vb{r}||\\
+    &\geq d(\vb{p},\vb{r})
+  \end{align}
+  by the property cited in Def 1.1.
+\end{sol}
+
+% Prob 3
+\begin{problem}{3}
+  Prove that the tangent vectors
+  \begin{equation}
+    \vb{e}_1=\frac{(1,2,1)}{\sqrt{6}},\quad\vb{e}_2=\frac{(-2,-,2)}{\sqrt{8}},\quad\vb{e}_3=\frac{(1,-1,1)}{\sqrt{3}}
+  \end{equation}
+  constitute a frame. Express \(\vb{v} = (6, 1, -1)\) as a linear combination of these vectors. (Check the result by direct computation.)
+\end{problem}
+\begin{sol}
+  To be a frame, we need \(\vb{e}_i\cdot\vb{e}_j=\delta_{ij}\). Clearly, these vectors are all norm 1. They are also all orthogonal (e.g. \((1,2,1)(-2,0,2)^{T}=-2+0+2=0\)). Any vector can be written as a linear combination of these using
+  \begin{equation}
+    (1,0,0)=\frac{1}{6}(\sqrt{6}\vb{e}_1+2\sqrt{3}\vb{e}_3)+\frac{\sqrt{8}}{4}\vb{e}_2\quad(0,1,0)=\frac{\sqrt{6}\vb{e}_1-\sqrt{3}\vb{e}_3}{3}\quad(0,0,1)=\frac{1}{6}(\sqrt{6}\vb{e}_1+2\sqrt{3}\vb{e}_3)-\frac{\sqrt{8}}{4}\vb{e}_2
+  \end{equation}
+\end{sol}
+
+% Prob 4
+\begin{problem}{4}
+  Let \(\vb{u} = (u_1, u_2, u_3), \vb{v} = (v_1, v_2, v_3), \vb{w} = (w_1, w_2, w_3).\) Prove that\\
+  (a) \(\vb{u}\cdot\vb{v}\times\vb{w}=\begin{pmatrix}
+  u_1 & u_2 & u_3\\
+  v_1 & v_2 & v_3\\
+  w_1 & w_2 & w_3
+  \end{pmatrix}.\)\\
+  (b) \(\vb{u}\cdot\vb{v}\times\vb{w}\neq 0\) if and only if \(\vb{u}, \vb{v},\) and \(\vb{w}\) are linearly independent.\\
+  (c) If any two vectors in \(\vb{u}\cdot\vb{v}\times\vb{w}\) are reversed, the product changes sign.\\
+  (d) \(\vb{u}\cdot\vb{v}\times\vb{w} = \vb{u}\times\vb{v}\cdot\vb{w}\).
+\end{problem}
+\begin{sol}
+  (a) We have
+  \begin{align}
+    \vb{u}\cdot\vb{v}\times\vb{w}&=\sum_i u_i(\vb{v}\times\vb{w})_i\\
+    &=\sum_i u_i \epsilon^{ijk}v_j w_k
+  \end{align}\\
+  (b) The determinant of a square matrix with linearly dependent rows/columns is zero. Given the result in (a), this statement is proven.\\
+  (c) Given the presence of the antisymmetric Levi-Civita psuedotensor in the product in (a), the product is antisymmetric under reversing vectors.\\
+  (d) Also clear given the form of (a).
+\end{sol}
+
+% Prob 5
+\begin{problem}{5}
+  Prove that \(\vb{v}\times\vb{w}\neq 0\) if and only if \(\vb{v}\) and \(\vb{w}\) are linearly independent, and show that 􏰀 \(||\vb{v}\times\vb{w}||\)􏰀 is the area of the parallelogram with sides \(\vb{v}\) and \(\vb{w}\).
+\end{problem}
+\begin{sol}
+  The determinant representation of the cross product makes the first statement clear. A parallelogram with sides given by the vectors would have area \(||v||||w|||\sin\theta|\) which is precisely the magnitude of the cross product.
+\end{sol}
+
+% Prob 6
+\begin{problem}{6}
+  If \(\vb{e}_1, \vb{e}_2, \vb{e}_3\) is a frame, show that \(\vb{e}_1\cdot\vb{e}_2\times\vb{e}_3 =\pm1\). Deduce that any \(3\times3\) orthogonal matrix has determinant \(\pm1\).
+\end{problem}
+\begin{sol}
+  Since these vectors form a frame, they are orthogonal so the cross product will give \(\pm\vb{e}_1\) depending on the orientation of the vectors. Then evaluating the dot product will give \(\pm1\). Then given (4a) and the fact that an orthogonal matrix is a matrix of orthonormal unit vectors, any \(3\ctimes3\) orthogonal matrix will have determinant \(\pm1\).
+\end{sol}
+
+% Prob 7
+\begin{problem}{7}
+  If \(\vb{u}\) is a unit vector, then the component of \(\vb{v}\) in the \(\vb{u}\) direction is \((\vb{v}\cdot\vb{u})\vb{u}=||\vb{v}||\cos\theta\,\vb{u}\).
+  Show that \(\vb{v}\) has a unique expression \(\vb{v} = \vb{v}_1 + \vb{v}_2\), where \(\vb{v}_1\cdot\vb{v}_2 = 0\) and \(\vb{v}_1\) is the component of \(\vb{v}\) in the \(\vb{u}\) direction.
+\end{problem}
+\begin{sol}
+  Geomtrically, we can draw a right triangle with \(\vb{v}\) as the hypotenuse and \(\vb{v}_{||},\vb{v}_\perp\) are the legs where we draw one leg parallel to \(\vb{u}\) and the other necessarily perpendicular to it. The legs clearly satisfy \(\vb{v}_{||}\cdot\vb{v}_\perp = 0\) and this triangle is uniquely determined because \(\vb{v}\) fixes two vertices and the direction of \(\vb{u}\) fixes the other.
+\end{sol}
+
+% Prob 8
+\begin{problem}{8}
+  Prove: The volume of the parallelepiped with sides \(\vb{u}, \vb{v}, \vb{w}\) is \(±\vb{u}\cdot\vb{v}\times\vb{w}\).
+\end{problem}
+\begin{sol}
+  We already saw that the cross product gives the area of the parallelogram. If the crossproduct were parallel to \(\vb{u}\), then we would have maximum area.
+  If \(\vb{u}\) were in the plane of \(\vb{v}\&\vb{w}\), there would be no parallelgram so the area would be zero. Then clearly the dot product will give the correct result.
+\end{sol}
+
+% Prob 9
+\begin{problem}{9}
+  Prove, using \(\epsilon\)-neighborhoods, that each of the following subsets of \(\vb{R}^3\) is open:\\
+  (a) All points \(\vb{p}\) such that 􏰀 \(\vb{p} 􏰀 < 1\).\\
+  (b) All \(\vb{p}\) such that \(\vb{p})3 > 0\). (Hint: \(| p_i - q_i |\leq 􏰃 d(\vb{p}, \vb{q})\).)
+\end{problem}
+\begin{sol}
+  (a)
+\end{sol}
+
+% Prob 10
+\begin{problem}{10}
+  In each case, let \(S\) be the set of all points \(\vb{p}\) that satisfy the given condition. Describe \(S\), and decide whether it is open.\\
+  (a) \(p_1^2 +p_2^2 +p_3^2 =1\).\quad (b) \(p_3]\neq0\).\\
+  (c) \(p_1 =p_2 \neq p_\). \quad\quad(d) \(p_1^2 +p_2^2 <9.
+\end{problem}
+\begin{sol}
+
+\end{sol}
